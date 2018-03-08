@@ -35,3 +35,22 @@ win = GraphWin("Lightsaber", 1000, 650)
 win.setBackground("black")
 
 Blade.main(win)
+
+class Handle(Blade):
+    def __init__(self, x, y, color, win):
+        super(Handle,self).__init__(x, y, color, win)
+        self.drawHandle(win)
+        self.drawButton(win)
+
+    def drawHandle(self, win):
+        hand = Rectangle(Point(self.x + 45, self.y - 25), Point(self.x + 225, self.y))
+        hand.setFill(self.color)
+        hand.draw(win)
+        line = Line(Point(self.x + 30, self.y - 45), Point(self.x + 150, self.y - 65))
+        line.setWidth(25)
+        hand.draw(win)
+
+    def drawButton(self, win):
+        button = Circle(Point(x+255, y+ 485), 25)
+        button.draw(win)
+#def main():
